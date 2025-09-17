@@ -1,0 +1,11 @@
+#
+# pattern:
+#
+# file/directory    user
+#
+
+*.jsx    @jeromecagado
+*.jsx    @ElijahA1
+
+*.cs    @o11o01
+*.cs    @Stephen-Beck
