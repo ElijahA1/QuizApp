@@ -1,3 +1,18 @@
-.App{
+.App {
+  display: flex;
+  height: 100vh;
+  width: 100%;
   font-size: x-large;
+  justify-content: center;
+}
+
+.Content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.ContentHeader{
+  font-size: large;
 }
