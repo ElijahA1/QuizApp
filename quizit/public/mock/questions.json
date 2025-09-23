@@ -1,0 +1,13 @@
+[
+  { "id": 1, "question": "What is a variable in C#?", "answer": "A named storage for a value", "difficulty": "Basic" },
+  { "id": 2, "question": "What does `==` compare in C# for value types?", "answer": "Value equality", "difficulty": "Basic" },
+  { "id": 3, "question": "Which keyword defines a class in C#?", "answer": "class", "difficulty": "Basic" },
+
+  { "id": 4, "question": "What is boxing in C#?", "answer": "Converting a value type to object", "difficulty": "Intermediate" },
+  { "id": 5, "question": "What does `async` enable?", "answer": "Asynchronous methods with await", "difficulty": "Intermediate" },
+  { "id": 6, "question": "What is `IDisposable` used for?", "answer": "Deterministic resource cleanup", "difficulty": "Intermediate" },
+
+  { "id": 7, "question": "Explain covariance vs contravariance.", "answer": "Variance in generic type parameters", "difficulty": "Advanced" },
+  { "id": 8, "question": "What is a span (`Span<T>`) good for?", "answer": "Stack-only, sliceable view of memory", "difficulty": "Advanced" },
+  { "id": 9, "question": "When would you use `ValueTask`?", "answer": "To reduce allocations when results are often synchronous", "difficulty": "Advanced" }
+]
