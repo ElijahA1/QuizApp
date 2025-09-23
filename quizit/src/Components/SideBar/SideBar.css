@@ -1,0 +1,55 @@
+#SideBar {
+  width: 250px;
+  height: 100vh; /* Full height of the viewport */
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  position: fixed; /* Keeps it in place while scrolling */
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+#SideBar.collapsed {
+  transform: translateX(-60%);
+  opacity: 70%;
+}
+
+.sid-bar-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+
+.sid-bar-top img {
+  width: 80px;
+  height: 80px;
+  background-color: #ccc; /* Placeholder background */
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.sid-bar-top button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #0078d4;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.side-bar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.side-bar-menu li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.side-bar-menu li:hover {
+  background-color: #e0e0e0;
+}

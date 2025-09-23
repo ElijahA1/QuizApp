@@ -1,0 +1,17 @@
+.radio-buttons {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  margin: 1rem 0;
+}
+
+.radio-buttons label {
+  display: flex;               /* Align input and text horizontally */
+  align-items: center;         /* Vertically center the radio and label text */
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.radio-buttons input[type="radio"] {
+  margin-right: 0.5rem;
+}

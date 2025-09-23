@@ -1,0 +1,17 @@
+.QuestionGenerator{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 3rem;
+  max-width: 1000px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+
+  padding: 20rem; /* temp until content filled or established */
+}
+
+.QGlabel{
+    justify-self: flex-end;
+}
