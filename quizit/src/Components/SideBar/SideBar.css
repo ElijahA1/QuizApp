@@ -1,10 +1,10 @@
 #SideBar {
-  width: 250px;
+  width: 20vw;
   height: 100vh; /* Full height of the viewport */
   background-color: #f4f4f4;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  position: fixed; /* Keeps it in place while scrolling */
+  position: relative;
   top: 0;
   left: 0;
   transition: transform 0.3s ease, width 0.3s ease;

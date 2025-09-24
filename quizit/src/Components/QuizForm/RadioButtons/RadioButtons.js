@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
 import './RadioButtons.css';
 
-function RadioButtons() {
-  const [selectedDifficulty, setSelectedDifficulty] = useState('');
-
+// Renders difficulty selection radio buttons and updates parent state on change
+function RadioButtons({ setSelectedDifficulty }) {
   const handleChange = (e) => {
     setSelectedDifficulty(e.target.value);
-    console.log('Selected difficulty:', e.target.value);
   };
 
   return (
@@ -15,31 +12,28 @@ function RadioButtons() {
         <input
           type="radio"
           name="difficulty"
-          value="easy"
-          checked={selectedDifficulty === 'easy'}
+          value="Basic"
           onChange={handleChange}
         />
-        Easy
+        Basic
       </label>
       <label>
         <input
           type="radio"
           name="difficulty"
-          value="medium"
-          checked={selectedDifficulty === 'medium'}
+          value="Intermediate"
           onChange={handleChange}
         />
-        Medium
+        Intermediate
       </label>
       <label>
         <input
           type="radio"
           name="difficulty"
-          value="hard"
-          checked={selectedDifficulty === 'hard'}
+          value="Advanced"
           onChange={handleChange}
         />
-        Hard
+        Advanced
       </label>
     </div>
   );

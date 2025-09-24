@@ -3,7 +3,8 @@ import CategoryPicker from './CategoryPicker/CategoryPicker';
 import RadioButtons from './RadioButtons/RadioButtons';
 import QuestionCounter from './QuestionCounter/QuestionCounter';
 
-function QuizForm({ collapsed }) {
+// Renders the quiz setup form with category, question count, and difficulty selection
+function QuizForm({ setSelectedDifficulty }) {
   return (
     <div className="quiz-grid">
       <div>Select Category</div>
@@ -12,7 +13,7 @@ function QuizForm({ collapsed }) {
 
       <CategoryPicker />
       <QuestionCounter />
-      <RadioButtons />
+      <RadioButtons setSelectedDifficulty={setSelectedDifficulty} />
     </div>
   );
 }
