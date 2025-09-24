@@ -1,17 +1,58 @@
-.QuestionGenerator{
+.QuestionGenerator {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   padding: 3rem;
-  max-width: 1000px;
+  max-width: 1400px;
+  height: 80vh;
+  width: 70vw;
+  margin: 2rem auto;
   background-color: aliceblue;
   border-radius: 20px;
-  margin: 0 auto;
   font-family: Arial, sans-serif;
-
-  padding: 20rem; /* temp until content filled or established */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.QGlabel{
-    justify-self: flex-end;
+.QuestionPull {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.QGlabel {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.QuestionPull button {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #007acc;
+  color: white;
+  cursor: pointer;
+}
+
+.QuestionPull button:hover {
+  background-color: #005fa3;
+}
+
+.RevealButton {
+  background: none;
+  border: none;
+  color: #007acc;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 1rem;
+  text-decoration: underline;
+}
+
+.RevealButton:hover {
+  color: #005fa3;
+  text-decoration: none;
 }

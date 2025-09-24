@@ -4,7 +4,8 @@
   grid-template-rows: auto auto;         /* 2 rows: labels and inputs */
   column-gap: 8rem;   
   padding: 3rem;
-  max-width: 1000px;
+  width: 70vw;
+  max-width: 1400px;
   background-color: aliceblue;
   border-radius: 20px;
   margin: 0 auto;

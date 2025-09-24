@@ -1,11 +1,11 @@
-// Component currently displays dummy data from a category array
-
 import React, { useState } from 'react';
 import './CategoryPicker.css';
 
+// Renders a dropdown for selecting a quiz category (currently using static data)
 function CategoryPicker() {
   const [selectedCategory, setSelectedCategory] = useState('');
 
+  // Static list of available categories
   const categories = [
     'General Knowledge',
     'Science',
@@ -15,6 +15,7 @@ function CategoryPicker() {
     'Sports'
   ];
 
+  // Update selected category on change
   const handleChange = (e) => {
     setSelectedCategory(e.target.value);
     console.log('Selected category:', e.target.value);
@@ -35,6 +36,5 @@ function CategoryPicker() {
     </div>
   );
 }
-
 
 export default CategoryPicker;

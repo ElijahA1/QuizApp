@@ -1,15 +1,98 @@
-// This is where questions will be displayed based on filters
-// From the Quiz Form
+// Component for displaying and navigating through quiz questions
+// Questions are loaded from /public/mock/questions.json
+// This component is designed to work with filters from the QuizForm (integration pending)
 
+import './QuestionGenerator.css';
+import { useEffect, useState } from 'react';
 
-import './QuestionGenerator.css'
+// Displays and navigates quiz questions filtered by selected difficulty
+function QuestionGenerator({ selectedDifficulty }) {
+  // Stores all questions loaded from the JSON file
+  const [allQuestions, setAllQuestions] = useState([]);
 
-function QuestionGenerator(){
-    return(
-        <div className="QuestionGenerator">
-        <label className='QGlabel'>Question Generator</label>
+  // Stores only the questions that match the selected difficulty
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
+
+  // Tracks which question is currently being displayed
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Controls whether the answer is shown or hidden
+  const [showAnswer, setShowAnswer] = useState(false);
+
+  // Load all questions once when the component mounts
+  useEffect(() => {
+    fetch('/mock/questions.json')
+      .then((res) => res.json())
+      .then((data) => setAllQuestions(data))
+      .catch((err) => console.error('Failed to load questions:', err));
+  }, []);
+
+  // Re-filter questions whenever the difficulty or question set changes
+  useEffect(() => {
+    const filtered = selectedDifficulty
+      ? allQuestions.filter(q => q.difficulty === selectedDifficulty)
+      : allQuestions;
+
+    setFilteredQuestions(filtered);
+    setCurrentIndex(0);       // Reset to first question
+    setShowAnswer(false);     // Hide answer on filter change
+  }, [selectedDifficulty, allQuestions]);
+
+  // Advance to the next question, if not at the end
+  const handleNext = () => {
+    setCurrentIndex(prev => (prev + 1 < filteredQuestions.length ? prev + 1 : prev));
+    setShowAnswer(false);
+  };
+
+  // Go back to the previous question, if not at the beginning
+  const handlePrevious = () => {
+    setCurrentIndex(prev => (prev > 0 ? prev - 1 : prev));
+    setShowAnswer(false);
+  };
+
+  // Toggle answer visibility
+  const handleReveal = () => {
+    setShowAnswer(prev => !prev);
+  };
+
+  // Get the question to display based on current index
+  const currentQuestion = filteredQuestions[currentIndex];
+
+  return (
+    <div className="QuestionGenerator">
+      <label className="QGlabel">Question Generator</label>
+
+      <div className="QuestionPull">
+        {/* Previous question button */}
+        <button id="PreviousQuestion" onClick={handlePrevious}>&lt;</button>
+
+        <div>
+          {/* Display question content if available */}
+          {currentQuestion ? (
+            <>
+              <p><strong>Q:</strong> {currentQuestion.question}</p>
+              <p><em>Difficulty:</em> {currentQuestion.difficulty}</p>
+
+              {/* Toggle answer visibility */}
+              <button className="RevealButton" onClick={handleReveal}>
+                {showAnswer ? 'Hide Answer' : 'Reveal Answer'}
+              </button>
+
+              {/* Conditionally show the answer */}
+              {showAnswer && (
+                <p><strong>Answer:</strong> {currentQuestion.answer}</p>
+              )}
+            </>
+          ) : (
+            'No questions available for this difficulty.'
+          )}
         </div>
-    )
+
+        {/* Next question button */}
+        <button id="NextQuestion" onClick={handleNext}>&gt;</button>
+      </div>
+    </div>
+  );
 }
 
 export default QuestionGenerator;
