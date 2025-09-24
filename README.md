@@ -46,6 +46,7 @@ Backend setup coming soon.
 Planned stack: C#/.NET Web API with PostgreSQL integration.
 
 📂 Project Structure
+<pre>
 quizit/
 ├── public/                  # Static assets
 │   └── mock/questions.json  # Temporary dummy data
@@ -56,6 +57,8 @@ quizit/
 │   ├── App.js               # Root component
 │   └── index.js             # Entry point
 └── package.json
+</pre>
+
 
 👥 Team Workflow
 	•	Development occurs on feature branches (e.g., feature/dummyData).
