@@ -26,8 +26,6 @@ namespace QuizApp_API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<QuestionReadDTO>>> GetAllQuestions()
         {
-            //return await _context.Questions.ToListAsync(); // Original auto-generated code
-
             var items = await _context.Questions
                 .AsNoTracking() // Do not track returned rows (faster for read-only queries)
                 .OrderBy(q => q.ID) // Order by ID
