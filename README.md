@@ -74,3 +74,12 @@ quizit/
 	•	Scoring system + progress tracking
 	•	Deployment to cloud hosting
 
+## Environment Variables
+
+Copy `.env.example` to `.env` and adjust values as needed:
+
+cp .env.example .env
+
+By default, the backend runs on https://localhost:7138. 
+Change REACT_APP_API_BASE_URL if your backend uses a different port.
+
