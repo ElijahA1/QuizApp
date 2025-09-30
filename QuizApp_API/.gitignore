@@ -1,0 +1,23 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio / Rider / VS Code settings
+.vs/
+*.user
+*.suo
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+
+# Logs
+*.log
+
+# Configuration (keep only if you want secrets tracked separately)
+appsettings.Development.json
+
+# Others
+*.cache
+*.db
