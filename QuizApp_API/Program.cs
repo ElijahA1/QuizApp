@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using QuizApp_API.Data;
+using QuizApp_API.Services;
 using System.Text.Json.Serialization;
 
 namespace QuizApp_API
@@ -38,6 +39,9 @@ namespace QuizApp_API
             //      (e.g., "Question" -> "question"; "ID" -> "id")
             builder.Services.AddDbContext<QuestionsDbContext>(options =>
                 options.UseNpgsql(connectionString).UseSnakeCaseNamingConvention());
+            
+            //Add CsvImport functionality
+            builder.Services.AddScoped<CsvImporterService>();
 
             // Automatically use camelCase for JSON serialization
             builder.Services.AddControllers().AddJsonOptions(options =>

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using QuizApp_API.Data;
 using QuizApp_API.Models;
 using QuizApp_API.DTOs;
+using QuizApp_API.Services;
 
 namespace QuizApp_API.Controllers
 {
@@ -16,10 +17,12 @@ namespace QuizApp_API.Controllers
     public class QuestionsController : ControllerBase
     {
         private readonly QuestionsDbContext _context;
+        private readonly CsvImporterService _importer;
 
-        public QuestionsController(QuestionsDbContext context)
+        public QuestionsController(QuestionsDbContext context, CsvImporterService importer)
         {
             _context = context;
+            _importer = importer;
         }
 
         // GET: api/Questions               Get All Questions
@@ -213,5 +216,25 @@ namespace QuizApp_API.Controllers
             return _context.Questions.Any(e => e.ID == id);
         }
         */
+
+        [HttpPost("import")]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> ImportCsv([FromForm] FileUploadDTO dto)
+        {
+            if (dto.File == null || dto.File.Length == 0)
+                return BadRequest("No file uploaded.");
+
+            try
+            {
+                using var stream = dto.File.OpenReadStream();
+                int count = await _importer.ImportQuestionsAsync(stream);
+                return Ok(new { message = $"{count} questions imported successfully." });
+            }
+            catch (Exception ex)
+            {
+                // log ex
+                return StatusCode(500, $"Error importing file: {ex.Message}");
+            }
+        }
     }
 }
