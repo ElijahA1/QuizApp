@@ -6,7 +6,7 @@ import './QuestionGenerator.css';
 import { useEffect, useState } from 'react';
 
 // Displays and navigates quiz questions filtered by selected difficulty
-function QuestionGenerator({ selectedDifficulty }) {
+function QuestionGenerator({ selectedDifficulty, questionLimit, searchTerm }) {
   // Stores all questions loaded from the JSON file
   const [allQuestions, setAllQuestions] = useState([]);
 
@@ -27,16 +27,31 @@ function QuestionGenerator({ selectedDifficulty }) {
       .catch((err) => console.error('Failed to load questions:', err));
   }, []);
 
-  // Re-filter questions whenever the difficulty or question set changes
+ // Filters
   useEffect(() => {
-    const filtered = selectedDifficulty
+    // Filter by difficulty
+    let filtered = selectedDifficulty
       ? allQuestions.filter(q => q.difficulty === selectedDifficulty)
       : allQuestions;
+
+      // Limit Questions
+      if (questionLimit > 0) {
+      filtered = filtered.slice(0, questionLimit);
+
+      // Filter by search
+      if (searchTerm.trim()) {
+        const lower = searchTerm.toLowerCase();
+        filtered = filtered.filter(q =>
+          q.question.toLowerCase().includes(lower) ||
+          q.answer.toLowerCase().includes(lower)
+        );
+      }
+    }
 
     setFilteredQuestions(filtered);
     setCurrentIndex(0);       // Reset to first question
     setShowAnswer(false);     // Hide answer on filter change
-  }, [selectedDifficulty, allQuestions]);
+  }, [selectedDifficulty, allQuestions, questionLimit, searchTerm]);
 
   // Advance to the next question, if not at the end
   const handleNext = () => {

@@ -3,24 +3,23 @@
 import React, { useState } from 'react';
 import './QuestionCounter.css';
 
-function QuestionCounter() {
+function QuestionCounter({ onCountChange }) {
   const [value, setValue] = useState('');
 
   const handleChange = (e) => {
     const input = e.target.value;
 
-    // Allow empty string for clearing the input
     if (input === '') {
       setValue('');
+      onCountChange(0); // or null
       return;
     }
 
-    // Check if input is a positive integer and ≤ 20
     const num = Number(input);
     if (/^\d+$/.test(input) && num > 0 && num <= 20) {
       setValue(input);
+      onCountChange(num);
     }
-    // Ignore invalid input
   };
 
   return (
