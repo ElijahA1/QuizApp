@@ -5,6 +5,8 @@
 import './QuestionGenerator.css';
 import { useEffect, useState } from 'react';
 
+const API_BASE = process.env.REACT_APP_API_BASE_URL ?? "http://192.168.40.191:5072";
+
 // Displays and navigates quiz questions filtered by selected difficulty
 function QuestionGenerator({ selectedDifficulty }) {
   // Stores all questions loaded from the JSON file
@@ -21,7 +23,7 @@ function QuestionGenerator({ selectedDifficulty }) {
 
   // Load all questions once when the component mounts
   useEffect(() => {
-    fetch('/mock/questions.json')
+    fetch(`${API_BASE}/api/questions`)
       .then((res) => res.json())
       .then((data) => setAllQuestions(data))
       .catch((err) => console.error('Failed to load questions:', err));
