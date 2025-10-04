@@ -18,16 +18,16 @@ namespace QuizApp_API
 
             // Cross-Origin Resource Sharing (CORS)
             // Uncomment this when attaching to front-end! <----------------------------------------------------------------
-            //builder.Services.AddCors(options =>
-            //{
-            //    options.AddPolicy("Default", policy =>
-            //        policy
-            //            .AllowAnyHeader()
-            //            .AllowAnyMethod()
-            //            .WithOrigins("frontend site", "frontend dev server") From Jerome - our react dev server is http://localhost:3000
-            //            //example ("https://myfrontend.example", "http://localhost:5432")
-            //    );
-            //});
+            builder.Services.AddCors(options =>
+            {
+            options.AddPolicy("Default", policy =>
+                policy
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .WithOrigins("http://localhost:3000")
+                        //example ("https://myfrontend.example", "http://localhost:5432")
+                );
+            });
 
             // Connect to PostgreSQL
             var connectionString = builder.Configuration.GetConnectionString("Postgres")
@@ -65,10 +65,10 @@ namespace QuizApp_API
                 dbContext.Database.EnsureCreated();
             }
 
-            app.UseHttpsRedirection();
+           // app.UseHttpsRedirection(); Testing LAN 
 
             // Uncomment this when attaching to front-end! <----------------------------------------------------------------
-            //app.UseCors("Default");
+            app.UseCors("Default");
 
             app.UseAuthorization();
 
