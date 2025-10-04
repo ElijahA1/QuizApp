@@ -1,18 +1,24 @@
-// src/api/questions.js
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
 export async function getQuestions({ difficulty, limit }) {
-  const res = await fetch(`${process.env.PUBLIC_URL}/mock/questions.json`);
-  if (!res.ok) throw new Error(`Failed to load questions: ${res.status}`);
-  let data = await res.json();
+  const params = new URLSearchParams();
+  if (difficulty) params.set("difficulty", difficulty.toLowerCase()); // map if needed
+  if (limit) params.set("limit", String(limit));
 
-  // Filter by difficulty ("Basic", "Intermediate", "Advanced")
-  if (difficulty) {
-    data = data.filter(q => q.difficulty === difficulty);
-  }
+  // Try difficulty route if provided; else all
+  const url = difficulty
+    ? `${API_BASE}/api/questions/difficulty/${encodeURIComponent(difficulty.toLowerCase())}${limit ? `?${params}` : ""}`
+    : `${API_BASE}/api/questions${limit ? `?${params}` : ""}`;
 
-  // Trim to requested number
-  if (limit) {
-    data = data.slice(0, Number(limit));
-  }
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
 
-  return data;
+  // normalize field names to your UI shape
+  return data.map(r => ({
+    id: r.id,
+    difficulty: r.difficulty,
+    prompt: r.question,
+    answerText: r.answer
+  }));
 }
