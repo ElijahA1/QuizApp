@@ -1,23 +1,64 @@
+############################
 # Build results
+############################
 bin/
 obj/
+out/
+[Bb]uild/
+[Ll]og/
 
-# Visual Studio / Rider / VS Code settings
+############################
+# Visual Studio
+############################
 .vs/
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
 
-# NuGet packages
+# VS temp/cache files
+*.db
+*.cache
+*.v2
+*.vsidx
+*.dtbcache.v2
+*.pdb
+*.ipch
+*.opendb
+*.VC.db
+*.bak
+*.backup.json
+
+############################
+# JetBrains Rider
+############################
+.idea/
+*.iml
+
+############################
+# NuGet
+############################
 *.nupkg
 *.snupkg
 packages/
+*.nuspec
+project.lock.json
 
+############################
 # Logs
+############################
 *.log
 
-# Configuration (keep only if you want secrets tracked separately)
+############################
+# Config (optional)
+############################
 appsettings.Development.json
+appsettings.*.local.json
 
+############################
 # Others
-*.cache
-*.db
+############################
+*.tmp
+*.swp
+*.DS_Store
+Thumbs.db
