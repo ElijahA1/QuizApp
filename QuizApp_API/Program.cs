@@ -24,7 +24,7 @@ namespace QuizApp_API
             //        policy
             //            .AllowAnyHeader()
             //            .AllowAnyMethod()
-            //            .WithOrigins("frontend site", "frontend dev server")
+            //            .WithOrigins("frontend site", "frontend dev server") From Jerome - our react dev server is http://localhost:3000
             //            //example ("https://myfrontend.example", "http://localhost:5432")
             //    );
             //});
