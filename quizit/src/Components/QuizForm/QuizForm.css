@@ -1,8 +1,8 @@
 .quiz-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns for 3 fields */
-  grid-template-rows: auto auto;         /* 2 rows: labels and inputs */
-  column-gap: 8rem;   
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: auto auto;         /* 2 rows: labels + inputs */
+  gap: 1.5rem 4rem;                       /* row and column spacing */
   padding: 3rem;
   width: 70vw;
   max-width: 1400px;
@@ -10,21 +10,24 @@
   border-radius: 20px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
+  align-items: start;
+  justify-items: center;
 }
 
+/* Label row (first 3 items) */
 .quiz-grid > div:nth-child(1),
 .quiz-grid > div:nth-child(2),
 .quiz-grid > div:nth-child(3) {
   font-weight: bold;
   color: #333;
   text-align: center;
-  margin: auto;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 
+/* Input row (next 3 items) */
 .quiz-grid > div:nth-child(4),
 .quiz-grid > div:nth-child(5),
 .quiz-grid > div:nth-child(6) {
-  text-align: center;
-  margin: auto;
+  width: 100%;
+  max-width: 300px;
 }

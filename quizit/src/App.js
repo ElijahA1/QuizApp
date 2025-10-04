@@ -7,6 +7,8 @@ import QuestionGenerator from './Components/QuestionGenerator/QuestionGenerator'
 function App() {
   // Tracks the currently selected difficulty level from the quiz form
   const [selectedDifficulty, setSelectedDifficulty] = useState('');
+  const [questionCount, setQuestionCount] = useState(10);
+  const [searchTerm, setSearchTerm] = useState('');
 
   return (
     <div className="App">
@@ -15,10 +17,18 @@ function App() {
         <h1 className="ContentHeader">This is the header</h1>
 
         {/* Quiz setup form */}
-        <QuizForm setSelectedDifficulty={setSelectedDifficulty} />
+        <QuizForm
+          setSelectedDifficulty={setSelectedDifficulty}
+          questionLimiter={setQuestionCount}
+          setSearchTerm={setSearchTerm}
+        />
 
         {/* Displays questions filtered by selected difficulty */}
-        <QuestionGenerator selectedDifficulty={selectedDifficulty} />
+        <QuestionGenerator
+          selectedDifficulty={selectedDifficulty}
+          questionLimit={questionCount}
+          searchTerm={searchTerm}
+        />
 
         <footer>This is the footer</footer>
       </div>
