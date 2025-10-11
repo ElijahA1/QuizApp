@@ -1,0 +1,242 @@
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ====== Section Behavior and Animation ====== */
+html{
+    scroll-behavior: smooth;
+}
+
+.Section {
+  width: 90vw;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  margin: 5vh 0;
+  padding: 2rem;
+}
+
+.Section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Home Page */
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  color: #DCE6F0; /* Ice Gray for text */
+}
+
+/* ====== Header section  ======*/
+#ContentHeader {
+    background: radial-gradient(
+        circle at left,
+        #DCE6F0 0%,     /* Ice Gray */
+        #B8C9DD 30%,    /* Misty Blue */
+        #7A9CB8 60%,    /* Steel Blue */
+        #2B3A4A 100%    /* Charcoal Blue */
+    );
+    text-shadow: 2px 2px 6px rgba(43, 58, 74, 0.4); /* Charcoal Blue shadow */
+    position: relative;
+    color: #DCE6F0; /* Light text for contrast */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+#HeaderLinks {
+  position: absolute;
+  z-index: 1000;
+  top: 1rem;
+  right: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+#HeaderLinks div {
+  cursor: pointer;
+  font-weight: bold;
+  color: #2188db; /* Misty Blue */
+  transition: color 0.3s ease;
+}
+
+#HeaderLinks div:hover {
+  color: #7A9CB8; /* Steel Blue */
+}
+
+#ContentHeader h1 {
+  font-size: 18vw;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+#Title{
+  font-size: 10vw;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  animation: fadeIn 1.5s ease-out forwards;
+  text-shadow: 1px 1px 4px rgba(43, 58, 74, 0.3);
+}
+
+/* ====== About Section ====== */
+#About {
+  background-color: #DCE6F0; /* Ice Gray */
+  text-align: left;
+  animation: fadeIn 1s ease-out forwards;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(43, 58, 74, 0.1); /* subtle shadow using Charcoal Blue */
+}
+
+#About h1 {
+  font-size: 3rem;
+  color: #2B3A4A; /* Charcoal Blue */
+  margin-bottom: 1.5rem;
+}
+
+#About p {
+  font-size: 1.5rem;
+  color: #4A5F73; /* Slate Gray */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-indent: 20px;
+}
+
+/* ========== CONTRIBUTORS SECTION ========== */
+#Contributors {
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    #DCE6F0 50%,      /* Ice Gray for left team */
+    #DCE6F0 45%,     /* Extend Ice Gray to mid-left */
+    #B8C9DD 55%,     /* Misty Blue transition */
+    #7A9CB8 75%,     /* Steel Blue */
+    #2B3A4A 100%     /* Charcoal Blue for far right */
+  );
+  color: #2B3A4A;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+#TeamTitle {
+  font-size: 5vw;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-decoration: underline;
+}
+
+/* Team layout */
+#Team {
+  display: flex;
+  justify-content: row;
+  align-items: flex-start;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Left and Right columns */
+#Left, #Right {
+  flex: 1;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+#Left h1, #Right h1 {
+  font-size: 2.5vw;
+  margin-bottom: 1rem;
+  color: #2B3A4A;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5rem;
+}
+
+.DevNames {
+  display: flex;
+  flex-direction: row;
+  gap: 10rem;
+  flex-wrap: wrap; /* Optional: allows wrapping on smaller screens */
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Developer blocks */
+.DeveloperBox {
+  margin-bottom: 2rem;
+}
+
+.DeveloperBox h1 {
+  font-size: 10px;
+  margin-bottom: 2rem;
+  max-width: 100px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.DeveloperBox div {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.DeveloperBox img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.DeveloperBox img:hover {
+  transform: scale(1.1);
+}
+
+/* ====== Footer Section ====== */
+
+.Home footer{
+    background-color:#B8C9DD;
+    text-shadow: 2px 2px 6px rgba(43, 58, 74, 0.4); /* Charcoal Blue shadow */
+    text-align: center;
+    position: relative;
+    color: #DCE6F0; /* Light text for contrast */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.Home footer > button {
+  margin: 1rem;
+  background-color: #2B3A4A; /* Charcoal Blue */
+  color: #DCE6F0; /* Ice Gray text */
+  border: 2px solid #DCE6F0;
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(43, 58, 74, 0.4); /* Soft shadow */
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 40vw;
+  height: 20vh;
+}
+
+.Home footer > button:hover {
+  background-color: #7A9CB8; /* Steel Blue */
+  color: #2B3A4A; /* Charcoal text */
+  box-shadow: 3px 3px 12px rgba(43, 58, 74, 0.5);
+  transform: translateY(-2px);
+}

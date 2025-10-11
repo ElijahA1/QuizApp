@@ -1,38 +1,21 @@
-import './App.css';
-import { useState } from 'react';
-import SideBar from './Components/SideBar/SideBar';
-import QuizForm from './Components/QuizForm/QuizForm';
-import QuestionGenerator from './Components/QuestionGenerator/QuestionGenerator';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './Pages/Home/Home';
+import Landing from './Pages/Landing/Landing'
+import Test from './Pages/Test/Test';
+import StartTest from './Pages/StartTest/StartTest';
+import ScoreTest from './Pages/Score/Score'
 
 function App() {
-  // Tracks the currently selected difficulty level from the quiz form
-  const [selectedDifficulty, setSelectedDifficulty] = useState('');
-  const [questionCount, setQuestionCount] = useState(10);
-  const [searchTerm, setSearchTerm] = useState('');
-
   return (
-    <div className="App">
-      <SideBar />
-      <div className="Content">
-        <h1 className="ContentHeader">This is the header</h1>
-
-        {/* Quiz setup form */}
-        <QuizForm
-          setSelectedDifficulty={setSelectedDifficulty}
-          questionLimiter={setQuestionCount}
-          setSearchTerm={setSearchTerm}
-        />
-
-        {/* Displays questions filtered by selected difficulty */}
-        <QuestionGenerator
-          selectedDifficulty={selectedDifficulty}
-          questionLimit={questionCount}
-          searchTerm={searchTerm}
-        />
-
-        <footer>This is the footer</footer>
-      </div>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path='/landing' element={<Landing/>}></Route>
+      <Route path='/test' element={<Test/>}></Route>
+      <Route path='/test/start' element={<StartTest/>}></Route>
+      <Route path='/test/score' element={<ScoreTest/>}></Route>
+    </Routes>
+    </BrowserRouter>
   );
 }
 

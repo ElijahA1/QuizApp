@@ -1,0 +1,73 @@
+.StartTest {
+  padding: 40px;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.Timer {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.QuestionCard {
+  max-width: 700px;
+  margin: 80px auto 0;
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.QuestionText {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.Options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.Option {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.NavButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.NavButtons button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.NavButtons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.SubmitBtn {
+  background-color: #28a745;
+}
+
+.SubmitBtn:hover {
+  background-color: #218838;
+}

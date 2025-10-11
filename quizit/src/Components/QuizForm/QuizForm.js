@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './QuizForm.css';
-import SearchBar from './SearchBar/SearchBar';
-import RadioButtons from './RadioButtons/RadioButtons';
-import QuestionCounter from './QuestionCounter/QuestionCounter';
+import SearchBar from '../SearchBar/SearchBar';
+import RadioButtons from '../RadioButtons/RadioButtons';
+import QuestionCounter from '../QuestionCounter/QuestionCounter';
 
 // Renders the quiz setup form with category, question count, and difficulty selection
 function QuizForm({ setSelectedDifficulty, questionLimiter, setSearchTerm  }) {
