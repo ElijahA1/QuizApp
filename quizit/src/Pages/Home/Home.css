@@ -16,7 +16,7 @@ html{
 
 .Section {
   width: 90vw;
-  border-radius: 20px;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,10 +40,10 @@ html{
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
   height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   color: #DCE6F0; /* Ice Gray for text */
+  background-color: #bbd0fd;
 }
 
 /* ====== Header section  ======*/
@@ -51,14 +51,13 @@ html{
     background: radial-gradient(
         circle at left,
         #DCE6F0 0%,     /* Ice Gray */
-        #B8C9DD 30%,    /* Misty Blue */
-        #7A9CB8 60%,    /* Steel Blue */
-        #2B3A4A 100%    /* Charcoal Blue */
+        #B8C9DD 10%,    /* Misty Blue */
+        #7A9CB8 50%,    /* Steel Blue */
+        #2B3A4A 80%    /* Charcoal Blue */
     );
     text-shadow: 2px 2px 6px rgba(43, 58, 74, 0.4); /* Charcoal Blue shadow */
     position: relative;
     color: #DCE6F0; /* Light text for contrast */
-    animation: fadeIn 1s ease-out forwards;
 }
 
 #HeaderLinks {
@@ -68,7 +67,7 @@ html{
   right: 2rem;
   display: flex;
   gap: 1.5rem;
-  animation: fadeIn 1.5s ease-out forwards;
+  animation: appear .5s ease-in forwards;
 }
 
 #HeaderLinks div {
@@ -83,6 +82,7 @@ html{
 }
 
 #ContentHeader h1 {
+  animation: appear .5s ease-in forwards;
   font-size: 18vw;
   margin-top: 1rem;
   margin-bottom: 3rem;
@@ -92,20 +92,20 @@ html{
   font-size: 10vw;
   font-weight: bold;
   margin-bottom: 3rem;
-  animation: fadeIn 1.5s ease-out forwards;
+  animation: appear 1s ease-out forwards;
   text-shadow: 1px 1px 4px rgba(43, 58, 74, 0.3);
 }
 
 /* ====== About Section ====== */
 #About {
-  background-color: #DCE6F0; /* Ice Gray */
+  background-color: transparent; /* Ice Gray */
   text-align: left;
-  animation: fadeIn 1s ease-out forwards;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(43, 58, 74, 0.1); /* subtle shadow using Charcoal Blue */
 }
 
 #About h1 {
+  animation: appear .5s ease-in forwards;
   font-size: 3rem;
   color: #2B3A4A; /* Charcoal Blue */
   margin-bottom: 1.5rem;
@@ -113,10 +113,11 @@ html{
 
 #About p {
   font-size: 1.5rem;
-  color: #4A5F73; /* Slate Gray */
+  color: #222b33; /* Slate Gray */
   line-height: 1.6;
   margin-bottom: 1rem;
   text-indent: 20px;
+  animation: appear 1s ease-in forwards;
 }
 
 /* ========== CONTRIBUTORS SECTION ========== */
@@ -131,7 +132,6 @@ html{
     #2B3A4A 100%     /* Charcoal Blue for far right */
   );
   color: #2B3A4A;
-  animation: fadeIn 1s ease-out forwards;
 }
 
 #TeamTitle {
@@ -208,12 +208,11 @@ html{
 /* ====== Footer Section ====== */
 
 .Home footer{
-    background-color:#B8C9DD;
+    background-color:#a4caf7;
     text-shadow: 2px 2px 6px rgba(43, 58, 74, 0.4); /* Charcoal Blue shadow */
     text-align: center;
     position: relative;
     color: #DCE6F0; /* Light text for contrast */
-    animation: fadeIn 1s ease-out forwards;
 }
 
 .Home footer > button {
