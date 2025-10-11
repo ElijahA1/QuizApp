@@ -1,33 +1,58 @@
 import './Home.css';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import linkedinLogo from '../../Assets/images/linkedin.png'
 import githubLogo from '../../Assets/images/github.png'
 //import FullScreenFade from '../../Components/FullScreenSection/FullScreenSection';
 
 function Home() {
+const navigate = useNavigate();
+
+useEffect(() => {
+  const sections = document.querySelectorAll('.Section');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  sections.forEach(section => observer.observe(section));
+
+  return () => observer.disconnect();
+}, []);
+
   return (
     <div className="Home">
-        <div className="ContentHeader">
-            <div className='HeaderLinks'>
-                <div id='About'>About</div>
-                <div id = 'Developers'>Developers</div>
-                <div id='LearnIt'>LearnIT!</div>
+       <div id='HeaderLinks'>
+            <div id='AboutLink'><a href="#About">About</a></div>
+            <div id ='DevelopersLink'><a href="#Contributors">Developers</a></div>
+            <div id='LearnItLink'><a href="/landing">LearnIT!</a></div>
             </div>
+        <div id="ContentHeader" className='Section'>
             <h1>Welcome</h1>
             <div id='Title'>QuizIT! C#</div>
         </div>
-        <div className='About'>
+        <div id='About' className='Section'>
             <h1>About QuizIT! C#</h1>
             <p>QuizIt! C# is a collaborative project built by a small team of four passionate developers, united by a shared goal: to learn the full lifecycle of building modern web applications — from frontend design to backend architecture.</p>
             <p>Our mission is simple yet powerful: to help fellow C# and .NET developers grow, learn, and confidently prepare for technical interviews. Whether you're just starting out or brushing up on object-oriented programming, QuizIt! C# offers a focused, practical way to sharpen your skills.</p>
-            <p>With over 90 carefully curated questions covering C#, .NET fundamentals, and OOP concepts, QuizIt is designed to challenge your understanding and get you interview-ready.</p>
+            <p>With over 90 carefully curated questions covering C#, .NET fundamentals, and OOP concepts, QuizIt! C# is designed to challenge your understanding and get you interview-ready.</p>
         </div>
-        <div className='Contributors'>
-            <div id='TeamTitle'>Meet the development team</div>
-            <div className='Team'>
-                <div className='Left'>
+        <div id='Contributors' className='Section'>
+            <div id='TeamTitle'>MEET THE DEVELOPERS</div>
+            <div id='Team'>
+                <div id='Left'>
                     <h1>Frontend</h1>
-                       <div className='Names'>
-                       <div className='Developer'>
+                       <div class='DevNames'>
+                       <div className='DeveloperBox'>
                            <h1>Jerome</h1>
                            <div>
                                <a href='https://www.linkedin.com/in/jeromecagado/'>
@@ -36,7 +61,7 @@ function Home() {
                                <img src={githubLogo} alt="GitHub"/></a>
                            </div>
                        </div>
-                       <div className='Developer'>
+                       <div className='DeveloperBox'>
                            <h1>Elijah</h1>
                            <div>
                                <a href='https://www.linkedin.com/in/elijahabourezk/'>
@@ -47,10 +72,10 @@ function Home() {
                        </div>
                     </div>
                 </div>
-                <div className='Right'>
+                <div id='Right'>
                     <h1>Backend</h1>
-                    <div className='Names'>
-                       <div className='Developer'>
+                    <div className='DevNames'>
+                       <div className='DeveloperBox'>
                            <h1>Ryan</h1>
                            <div>
                                <a href='https://www.linkedin.com/in/ryankinison/'>
@@ -59,7 +84,7 @@ function Home() {
                                <img src={githubLogo} alt="GitHub"/></a>
                            </div>
                        </div>
-                       <div className='Developer'>
+                       <div className='DeveloperBox'>
                            <h1>Stephen</h1>
                            <div>
                                <a href='https://www.linkedin.com/in/stephenmbeck/'>
@@ -72,8 +97,9 @@ function Home() {
                 </div>
             </div>
         </div>
-        <div className='TechStack'></div>
-        <footer>This is the footer</footer>
+        <footer className='Section'>
+            <button onClick={() => navigate('/landing')}>Try IT Out!</button>
+        </footer>
     </div>
   );
 }

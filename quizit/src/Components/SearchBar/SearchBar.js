@@ -1,4 +1,3 @@
-import React from 'react';
 import './SearchBar.css';
 
 function SearchBar({ value, onChange, onSubmit }) {
