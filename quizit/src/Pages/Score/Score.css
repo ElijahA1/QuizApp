@@ -1,0 +1,37 @@
+.ScorePage {
+  display: flex;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.ScoreContent {
+  flex-grow: 1;
+  padding: 40px;
+}
+
+.ScoreBox {
+  background-color: #f9f9f9;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+}
+
+.ScoreActions {
+  display: flex;
+  gap: 20px;
+}
+
+.ScoreActions button {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ScoreActions button:hover {
+  background-color: #005fa3;
+}

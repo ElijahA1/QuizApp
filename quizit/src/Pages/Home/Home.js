@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import linkedinLogo from '../../Assets/images/linkedin.png'
 import githubLogo from '../../Assets/images/github.png'
-//import FullScreenFade from '../../Components/FullScreenSection/FullScreenSection';
 
 function Home() {
 const navigate = useNavigate();
