@@ -91,37 +91,6 @@ namespace QuizApp_API.Controllers
 
         // PUT: api/Questions/5             Update Question {id}
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        /* Original auto-generated code
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateQuestionByID(int id, QuestionEntry questionEntry)
-        {
-            if (id != questionEntry.ID)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(questionEntry).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!QuestionExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-        */
-
         [HttpPut("{id:int}")] // Adding `:int` ensures the `id` is an integer
         public async Task<IActionResult> UpdateQuestionByID(int id, [FromBody] QuestionUpdateDTO dto)
         {
@@ -148,16 +117,6 @@ namespace QuizApp_API.Controllers
 
         // POST: api/Questions              Create Question
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        /* Original auto-generated code
-        [HttpPost]
-        public async Task<ActionResult<QuestionEntry>> CreateQuestion(QuestionEntry questionEntry)
-        {
-            _context.Questions.Add(questionEntry);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetQuestionEntry", new { id = questionEntry.ID }, questionEntry);
-        }
-        */
         [HttpPost]
         public async Task<ActionResult<QuestionReadDTO>> CreateQuestion([FromBody] QuestionCreateDTO dto)
         {
@@ -206,12 +165,5 @@ namespace QuizApp_API.Controllers
             // Return success (no JSON body)
             return NoContent(); 
         }
-
-        /* Helper function was only used in the original PUT, no longer needed
-        private bool QuestionExists(int id)
-        {
-            return _context.Questions.Any(e => e.ID == id);
-        }
-        */
     }
 }
